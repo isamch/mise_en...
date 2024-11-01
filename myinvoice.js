@@ -8,9 +8,7 @@ const invoiceTable = document.getElementById('invoiceTable').getElementsByTagNam
 
 let tr = invoiceTable.querySelectorAll('tr');
 
-
 // item total :
-let totalFacture = 0;
 for (let i = 0; i < tr.length; i++) {
 
   let inputs = tr[i].querySelectorAll("input");
@@ -21,19 +19,29 @@ for (let i = 0; i < tr.length; i++) {
   
     itemTotal[i].textContent = tt.toFixed(2);
 
-    totalFacture = totalFacture + Number(itemTotal[i].textContent);
+    // totalFacture = totalFacture + Number(itemTotal[i].textContent);
 
-    // console.log(Number(itemTotal[i].textContent));
+    // console.log(Number(itemTotal[i].textContent));    
 
-    
+    // invoiceTotal.textContent = totalFacture.toFixed(2);
 
-    invoiceTotal.textContent = totalFacture.toFixed(2);
+    let totalFacture = 0;
+    for (let index = 0; index < tr.length; index++) {
+
+      totalFacture = totalFacture + Number(itemTotal[index].textContent);
+
+      invoiceTotal.textContent = totalFacture.toFixed(2);
+    }
 
   });
 
 };
 
 // total 
+
+
+
+
 
 // add tr in table :
 
